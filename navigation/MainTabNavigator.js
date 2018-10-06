@@ -4,8 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import WhyScreen from '../screens/WhyScreen';
+import RequirementsScreen from '../screens/RequirementsScreen';
 import UpdateScreen from '../screens/UpdateScreen';
 
 
@@ -28,12 +28,12 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const WhyStack = createStackNavigator({
+  Why: WhyScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+WhyStack.navigationOptions = {
+  tabBarLabel: 'Why',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -42,12 +42,12 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const RequirementsStack = createStackNavigator({
+  Requirements: RequirementsScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+RequirementsStack.navigationOptions = {
+  tabBarLabel: 'Requirements',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -72,8 +72,8 @@ UpdateStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  WhyStack,
+  RequirementsStack,
   UpdateStack,
 });
 
