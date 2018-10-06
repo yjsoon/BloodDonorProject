@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
+import NextEventScreen from '../screens/NextEventScreen'
 import WhyScreen from '../screens/WhyScreen';
 import RequirementsScreen from '../screens/RequirementsScreen';
 import UpdateScreen from '../screens/UpdateScreen';
@@ -12,6 +13,7 @@ import UpdateScreen from '../screens/UpdateScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  NextEvent: NextEventScreen,
 });
 
 HomeStack.navigationOptions = {

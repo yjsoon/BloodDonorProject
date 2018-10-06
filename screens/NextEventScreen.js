@@ -37,7 +37,7 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Text style ={styles.titleText}>
-              Liquid Life
+              NextEvent
             </Text>
             <Text style ={styles.subtitleText}>
               we share because we care
@@ -94,10 +94,9 @@ export default class HomeScreen extends React.Component {
 
   
   _NextPress = () => {
-    //WebBrowser.openBrowserAsync(
-    //  'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    this.props.navigation.navigate('NextEvent')
-    
+    WebBrowser.openBrowserAsync(
+      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
+    );
   };
 }
 
