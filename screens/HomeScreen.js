@@ -9,13 +9,27 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import Carousel from 'react-native-snap-carousel';
+import SliderEntry from '../components/SliderEntry';
+import {sliderWidth, itemWidth} from '../styles/SliderEntry.style';
 
 import { MonoText } from '../components/StyledText';
+
+export const CAROUSEL = [
+  { image: 'https://i.imgur.com/UYiroysl.jpg'},
+  { image: 'https://i.imgur.com/UYiroysl.jpg'},
+  { image: 'https://i.imgur.com/UYiroysl.jpg'},
+  { image: 'https://i.imgur.com/UYiroysl.jpg'},
+]
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  _renderItem({item, index}){
+    return <SliderEntry data={item} even={(index +1) % 2 == 0} />;
+  }
 
   render() {
     return (
@@ -33,6 +47,16 @@ export default class HomeScreen extends React.Component {
                 require('../assets/images/robot-prod.png')
               }
               style={styles.welcomeImage}
+            />
+          </View>
+
+          <View>
+            <Carousel
+            ref={c => this._slider1Ref = c}
+            data={CAROUSEL}
+            renderItem={this._renderItem}
+            sliderWidth={sliderWidth}
+            itemWidth={itemWidth}
             />
           </View>
 
