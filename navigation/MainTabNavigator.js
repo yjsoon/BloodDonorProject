@@ -6,6 +6,9 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import UpdateScreen from '../screens/UpdateScreen';
+
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -53,8 +56,24 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const UpdateStack = createStackNavigator({
+  Update: UpdateScreen,
+});
+
+UpdateStack.navigationOptions = {
+  tabBarLabel: 'Update',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  UpdateStack,
 });
+
