@@ -4,14 +4,13 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
 import Carousel from 'react-native-snap-carousel';
 import SliderEntry from '../components/SliderEntry';
 import {sliderWidth, itemWidth} from '../styles/SliderEntry.style';
+import {Button, Text, Card} from 'react-native-elements';
 
 import { MonoText } from '../components/StyledText';
 
@@ -28,7 +27,7 @@ export default class HomeScreen extends React.Component {
   };
 
   _renderItem({item, index}){
-    return <SliderEntry data={item} even={(index +1) % 2 == 0} />;
+    return <SliderEntry data={item}/>;
   }
 
   render() {
@@ -36,10 +35,10 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <Text style ={styles.titleText}>
+            <Text h3 style ={styles.titleText}>
               Liquid Life
             </Text>
-            <Text style ={styles.subtitleText}>
+            <Text h5 style ={styles.subtitleText}>
               we share because we care
             </Text>
             <Image
@@ -60,30 +59,32 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-          <View style={styles.AboutUs}>
+          <Card style={styles.AboutUs}>
             <Text style={styles.AboutUsTitle}>
               About Us:
             </Text>
             <Text style ={styles.AboutUsText}>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
             </Text>
-          </View>
+          </Card>
 
-          <View style={styles.Mission}>
+          <Card style={styles.Mission}>
             <Text style={styles.MissionTitle}>
               Mission:
             </Text>
             <Text style={styles.MissionText}>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
             </Text>
-          </View>
+          </Card>
 
           <View style={styles.NextEvent}>
-              <TouchableOpacity onPress={this._NextPress} style={styles.NextLink}>
-                <Text style={styles.NextEventText}>
-                  Come join us at our next event! 
-                </Text>
-              </TouchableOpacity>
+              <Button 
+                onPress={this._NextPress} 
+                style={styles.NextLink}
+                title="Come join us at our next event!"
+                backgroundColor="#ff0000"
+                rightIcon={{name: 'caret-right', type: 'font-awesome'}}
+              />
           </View>
         </ScrollView>
 
@@ -188,4 +189,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
+  
 });
