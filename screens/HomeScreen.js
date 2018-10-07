@@ -32,13 +32,12 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <Text h3 style ={styles.titleText}>
+            <Text h4 style ={styles.titleText}>
               Liquid Life
             </Text>
-            <Text h4 style ={styles.subtitleText}>
+            <Text h5 style ={styles.subtitleText}>
               we share because we care
             </Text>
             <Image
@@ -64,7 +63,7 @@ export default class HomeScreen extends React.Component {
               About Us:
             </Text>
             <Text style ={styles.AboutUsText}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Text>
           </Card>
 
@@ -87,9 +86,6 @@ export default class HomeScreen extends React.Component {
               />
           </View>
         </ScrollView>
-
-        
-      </View>
     );
   }
 
@@ -103,6 +99,25 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  titleText:{
+    fontWeight: 'bold',
+    color:"#ff0000",
+  },
+  subtitleText:{
+    fontSize:18
+  },
+  Mission:{
+    marginBottom: 20,
+  },
+  AboutUsTitle:{
+    fontSize:16
+  },
+  MissionTitle:{
+    fontSize:16
+  },
+  NextEvent:{
+    marginTop: 15,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

@@ -4,32 +4,21 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-import Carousel from 'react-native-snap-carousel';
 import SliderEntry from '../components/SliderEntry';
 import {sliderWidth, itemWidth} from '../styles/SliderEntry.style';
+import {Text, Card} from 'react-native-elements';
 
 import { MonoText } from '../components/StyledText';
 
-export const CAROUSEL = [
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
-]
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
-  _renderItem({item, index}){
-    return <SliderEntry data={item} even={(index +1) % 2 == 0} />;
-  }
 
   render() {
     return (
@@ -39,9 +28,6 @@ export default class HomeScreen extends React.Component {
             <Text style ={styles.titleText}>
               NextEvent
             </Text>
-            <Text style ={styles.subtitleText}>
-              we share because we care
-            </Text>
             <Image
               source={
                 require('../assets/images/robot-prod.png')
@@ -49,42 +35,44 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-
-          <View>
-            <Carousel
-            ref={c => this._slider1Ref = c}
-            data={CAROUSEL}
-            renderItem={this._renderItem}
-            sliderWidth={sliderWidth}
-            itemWidth={itemWidth}
-            />
-          </View>
-
-          <View style={styles.AboutUs}>
-            <Text style={styles.AboutUsTitle}>
-              About Us:
-            </Text>
-            <Text style ={styles.AboutUsText}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-            </Text>
-          </View>
-
-          <View style={styles.Mission}>
-            <Text style={styles.MissionTitle}>
-              Mission:
-            </Text>
-            <Text style={styles.MissionText}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            </Text>
-          </View>
-
-          <View style={styles.NextEvent}>
-              <TouchableOpacity onPress={this._NextPress} style={styles.NextLink}>
-                <Text style={styles.NextEventText}>
-                  Come join us at our next event! 
+\
+          <Card>
+            <View style={styles.When}>
+                <Text h4 style={styles.WhenTitle}>
+                When?
                 </Text>
-              </TouchableOpacity>
-          </View>
+                <Text h5 style ={styles.WhenInfo}>
+                November .....
+                </Text>
+            </View>
+
+            <View style={styles.Where}>
+                <Text h4 style={styles.WhereTitle}>
+                Where?
+                </Text>
+                <Text h5 style={styles.WhereInfo}>
+                jakarta...
+                </Text>
+            </View>
+
+            <View style={styles.What}>
+                <Text h4 style={styles.WhatTitle}>
+                    What to bring?
+                </Text>
+                <Text h5 style={styles.WhatInfo}>
+                    id
+                </Text>
+            </View>
+          </Card>
+
+          <Card style={styles.Contact}>
+              <Text h5 style={styles.ContactTitle}>
+                For more information, please contact:
+              </Text>
+              <Text h6 style={styles.ContactInfo}>
+                Email: ..........
+              </Text>
+          </Card>
         </ScrollView>
 
         
@@ -101,6 +89,39 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  When:{
+    marginBottom: 20
+  },
+  WhenTitle:{
+    fontSize:27
+  },
+  WhenInfo:{
+    fontSize:20
+  },
+  Where:{
+    marginBottom: 20
+  },
+  WhereTitle:{
+    fontSize:27
+  },
+  WhereInfo:{
+    fontSize:20
+  },
+  What:{
+    marginBottom: 20
+  },
+  WhatTitle:{
+    fontSize:27
+  },
+  WhatInfo:{
+    fontSize:20
+  },
+  ContactTitle:{
+    fontSize:20
+  },
+  ContactInfo:{
+    fontSize:18
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
