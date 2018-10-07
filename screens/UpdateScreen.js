@@ -7,25 +7,39 @@ import {
     Text,
     TouchableOpacity,
     View,
+    ActivityIndicator,
+    RefreshControl,
   } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
-const SECTIONS = [
-    {
-      title: 'First',
-      content: 'hiiiiii'
-    },
-    {
-      title: 'Second',
-      content: 'helllooo'
-    }
-  ];
-
 export default class UpdateScreen extends React.Component {
-  
-    state = {
-        activeSections: []
-      };
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoading:true,
+            activeSections: [],
+            refreshing: false,
+        }
+    }
+
+    _onRefresh = () => {
+        this.setState({refreshing: true})
+        return fetch('https://shannonsuhendra.github.io/BloodDonorUpdates.json')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: responseJson.data,
+                    refreshing: false,
+                },  function(){
+                });
+            })
+    }
+
+    componentDidMount(){
+        return this._onRefresh();
+    }
      
       _renderSectionTitle = section => {
         return (
@@ -56,18 +70,34 @@ export default class UpdateScreen extends React.Component {
       };
 
   render() {
+
+    if(this.state.isLoading){
+        return(
+            <View style={{flex:1, padding:20}}>
+                <ActivityIndicator/>
+            </View>
+        )
+    }
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}
+            refreshControl={
+                <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={this._onRefresh}
+                />
+            }
+        >
+
             <Text> Updates </Text>
             <Accordion
-                sections={SECTIONS}
+                sections={this.state.dataSource}
                 activeSections={this.state.activeSections}
                 renderSectionTitle={this._renderSectionTitle}
                 renderHeader={this._renderHeader}
                 renderContent={this._renderContent}
                 onChange={this._updateSections}
               />
-        </View>
+        </ScrollView>
     )
   }
 }
