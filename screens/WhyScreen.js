@@ -1,19 +1,53 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 export default class WhyScreen extends React.Component {
   static navigationOptions = {
     title: 'Links',
   };
+  constructor(){
+    super()
+    this.state = {
+      selectedIndex: 0,
+    };
+  }
+
+  handleIndexChange = (index) => {
+    this.setState({
+      ...this.state,
+      selectedIndex: index,
+    });
+  }
 
   render() {
+    if(this.state.selectedIndex == 0){
+      content = (
+        <View>
+          <Text> Benefits content</Text>
+          <Text> ........... </Text>
+          <Text> ........... </Text>
+        </View>
+      )
+    }else{
+      content = (
+        <View>
+          <Text> Side Effects content</Text>
+          <Text> ........... </Text>
+          <Text> ........... </Text>
+        </View>
+      )
+    }
     return (
       <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+        <SegmentedControlTab
+          values={['Benefits', 'Side Effects']}
+          selectedIndex={this.state.selectedIndex}
+          onTabPress={this.handleIndexChange}
+        />
+        {content}
       </ScrollView>
+      
     );
   }
 }
