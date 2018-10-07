@@ -16,7 +16,7 @@ const itemHorizontalMargin = wp(2);
 export const sliderWidth = viewportWidth;
 export const itemWidth = slideWidth + itemHorizontalMargin * 2;
 
-const entryBorderRadius = 8;
+const entryBorderRadius = 0;
 
 export default StyleSheet.create({
     slideInnerContainer: {
@@ -42,7 +42,9 @@ export default StyleSheet.create({
         marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
         backgroundColor: 'white',
         borderTopLeftRadius: entryBorderRadius,
-        borderTopRightRadius: entryBorderRadius
+        borderTopRightRadius: entryBorderRadius,
+        borderBottomLeftRadius: entryBorderRadius,
+        borderBottomRightRadius: entryBorderRadius,
     },
     imageContainerEven: {
         backgroundColor: colors.black
@@ -51,8 +53,7 @@ export default StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'cover',
         borderRadius: IS_IOS ? entryBorderRadius : 0,
-        borderTopLeftRadius: entryBorderRadius,
-        borderTopRightRadius: entryBorderRadius
+        borderRadius: entryBorderRadius,
     },
     // image's border radius is buggy on iOS; let's hack it!
     radiusMask: {

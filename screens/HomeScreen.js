@@ -38,7 +38,7 @@ export default class HomeScreen extends React.Component {
             <Text h3 style ={styles.titleText}>
               Liquid Life
             </Text>
-            <Text h5 style ={styles.subtitleText}>
+            <Text h4 style ={styles.subtitleText}>
               we share because we care
             </Text>
             <Image
