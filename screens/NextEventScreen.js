@@ -15,9 +15,9 @@ import {Text, Card} from 'react-native-elements';
 import { MonoText } from '../components/StyledText';
 
 
-export default class HomeScreen extends React.Component {
+export default class NextEventScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'Next Event'
   };
 
   render() {
@@ -25,9 +25,6 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <Text style ={styles.titleText}>
-              NextEvent
-            </Text>
             <Image
               source={
                 require('../assets/images/robot-prod.png')

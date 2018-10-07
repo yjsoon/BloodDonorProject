@@ -1,10 +1,35 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
+import {List, ListItem} from 'react-native-elements';
+
+const benefits = [
+  {
+    title: "Lower risk of heart disease and cancer"
+  },
+  {
+    title: "Burns calories" 
+  },
+  {
+    title: "Reduce iron levels"
+  },
+]
+
+const sideEffects = [
+  {
+    title: "dizzy"
+  },
+  {
+    title: "Burns calories" 
+  },
+  {
+    title: "Reduce iron levels"
+  },
+]
 
 export default class WhyScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    header: null,
   };
   constructor(){
     super()
@@ -21,22 +46,12 @@ export default class WhyScreen extends React.Component {
   }
 
   render() {
-    if(this.state.selectedIndex == 0){
-      content = (
-        <View>
-          <Text> Benefits content</Text>
-          <Text> ........... </Text>
-          <Text> ........... </Text>
-        </View>
-      )
-    }else{
-      content = (
-        <View>
-          <Text> Side Effects content</Text>
-          <Text> ........... </Text>
-          <Text> ........... </Text>
-        </View>
-      )
+    if(this.state.selectedIndex == 0){ //benefits
+      data=benefits
+      icon='flight-takeoff'
+    }else{ //side effects
+      data=sideEffects
+      icon='av-timer'
     }
     return (
       <ScrollView style={styles.container}>
@@ -45,7 +60,22 @@ export default class WhyScreen extends React.Component {
           selectedIndex={this.state.selectedIndex}
           onTabPress={this.handleIndexChange}
         />
-        {content}
+        <View style={styles.BenfitsInfo}> 
+          <List>
+            {data.map((item) => (
+              <ListItem
+                key={item.title}
+                title={item.title}
+                hideChevron={true}
+                leftIcon={{name: icon}}
+                containerStyle={styles.ListItem}
+                titleStyle={styles.ListItemTitle}
+              />
+            ))
+            }
+          </List>
+        </View>
+
       </ScrollView>
       
     );
@@ -55,7 +85,14 @@ export default class WhyScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    paddingTop: 100,
     backgroundColor: '#fff',
   },
+  ListItem:{
+    borderBottomColor: '#fff',
+  },
+  ListItemTitle:{
+    fontFamily: 'Courier'
+  }
+
 });

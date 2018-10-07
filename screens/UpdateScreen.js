@@ -13,6 +13,9 @@ import {
 import Accordion from 'react-native-collapsible/Accordion';
 
 export default class UpdateScreen extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
     
     constructor(props){
         super(props);
