@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import {List, ListItem} from 'react-native-elements';
 
@@ -13,18 +13,19 @@ const benefits = [
   {
     title: "Reduce iron levels"
   },
+  {
+    title: "It's for a good cause!"
+  },
 ]
 
 const sideEffects = [
   {
-    title: "dizzy"
+    title: "Feel nauseous, lightheaded, or dizzy"
   },
   {
-    title: "Burns calories" 
+    title: "May develop a bruise at the site" 
   },
-  {
-    title: "Reduce iron levels"
-  },
+  
 ]
 
 export default class WhyScreen extends React.Component {
@@ -48,13 +49,17 @@ export default class WhyScreen extends React.Component {
   render() {
     if(this.state.selectedIndex == 0){ //benefits
       data=benefits
-      icon='flight-takeoff'
     }else{ //side effects
       data=sideEffects
-      icon='av-timer'
     }
     return (
       <ScrollView style={styles.container}>
+        <Image
+          source={
+          require('../assets/images/heart.png')
+          }
+          style={styles.welcomeImage}
+        />
         <SegmentedControlTab
           values={['Benefits', 'Side Effects']}
           selectedIndex={this.state.selectedIndex}
@@ -67,7 +72,7 @@ export default class WhyScreen extends React.Component {
                 key={item.title}
                 title={item.title}
                 hideChevron={true}
-                leftIcon={{name: icon}}
+                leftIcon={{name: 'drop', type: 'entypo'}}
                 containerStyle={styles.ListItem}
                 titleStyle={styles.ListItemTitle}
               />
@@ -93,6 +98,13 @@ const styles = StyleSheet.create({
   },
   ListItemTitle:{
     fontFamily: 'Courier'
-  }
+  },
+  welcomeImage: {
+    width: 1000,
+    height: 60,
+    resizeMode: 'contain',
+    marginTop: 0,
+    marginLeft: 0,
+  },
 
 });

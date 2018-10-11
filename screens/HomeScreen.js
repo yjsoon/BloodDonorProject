@@ -15,9 +15,9 @@ import {Button, Text, Card} from 'react-native-elements';
 import { MonoText } from '../components/StyledText';
 
 export const CAROUSEL = [
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
+  { image: '../assets/images/img1.jpg'},
+  { image: '../assets/images/img1.jpg'},
+  { image: '../assets/images/img1.jpg'},
   { image: 'https://i.imgur.com/UYiroysl.jpg'},
 ]
 
@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
             </Text>
             <Image
               source={
-                require('../assets/images/robot-prod.png')
+                require('../assets/images/heart.png')
               }
               style={styles.welcomeImage}
             />
@@ -63,7 +63,9 @@ export default class HomeScreen extends React.Component {
               About Us:
             </Text>
             <Text style ={styles.AboutUsText}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+            Despite being the world's fourth largest population, the Red Cross in Indonesia is 
+            always low on blood supplies due to a lack of donors. To solve this problem, once every three months,
+            we hold a blood donor event.
             </Text>
           </Card>
 
@@ -72,7 +74,7 @@ export default class HomeScreen extends React.Component {
               Mission:
             </Text>
             <Text style={styles.MissionText}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            Get people to donate blood for the Red Cross.
             </Text>
           </Card>
 
@@ -102,18 +104,31 @@ const styles = StyleSheet.create({
   titleText:{
     fontWeight: 'bold',
     color:"#ff0000",
+    fontFamily: 'MarkerFelt-Thin',
+    fontSize: 40
   },
   subtitleText:{
-    fontSize:18
+    fontSize:18,
+    fontFamily: 'Menlo-Bold'
   },
   Mission:{
     marginBottom: 20,
   },
   AboutUsTitle:{
-    fontSize:16
+    fontSize:18,
+    fontFamily: 'TimesNewRomanPS-BoldMT'
+  },
+  AboutUsText:{
+    fontSize:16,
+    fontFamily: 'Times New Roman'
   },
   MissionTitle:{
-    fontSize:16
+    fontSize:18,
+    fontFamily: 'TimesNewRomanPS-BoldMT'
+  },
+  MissionText:{
+    fontSize:16,
+    fontFamily: 'Times New Roman',
   },
   NextEvent:{
     marginTop: 15,
@@ -138,11 +153,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 1000,
+    height: 60,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+    marginTop: 0,
+    marginLeft: 0,
   },
   getStartedContainer: {
     alignItems: 'center',

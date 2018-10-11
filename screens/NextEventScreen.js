@@ -27,7 +27,7 @@ export default class NextEventScreen extends React.Component {
           <View style={styles.welcomeContainer}>
             <Image
               source={
-                require('../assets/images/robot-prod.png')
+                require('../assets/images/heart.png')
               }
               style={styles.welcomeImage}
             />
@@ -131,19 +131,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 0,
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 0,
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 1000,
+    height: 60,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+    marginTop: 0,
+    marginLeft: 0,
   },
   getStartedContainer: {
     alignItems: 'center',
