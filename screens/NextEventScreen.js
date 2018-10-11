@@ -142,8 +142,6 @@ const styles = StyleSheet.create({
     width: 1000,
     height: 60,
     resizeMode: 'contain',
-    marginTop: 0,
-    marginLeft: 0,
   },
   getStartedContainer: {
     alignItems: 'center',

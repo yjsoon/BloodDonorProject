@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier'
   },
   welcomeImage: {
-    width: 1000,
+    width: 10,
     height: 60,
     resizeMode: 'contain',
     marginTop: 0,

@@ -1,11 +1,9 @@
 import React from 'react';
 import {
     Image,
-    Platform,
     ScrollView,
     StyleSheet,
     Text,
-    TouchableOpacity,
     View,
     ActivityIndicator,
     RefreshControl,
@@ -23,6 +21,7 @@ export default class UpdateScreen extends React.Component {
             isLoading:true,
             activeSections: [],
             refreshing: false,
+            
         }
     }
 
