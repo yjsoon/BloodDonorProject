@@ -8,22 +8,38 @@ const benefits = [
     title: "Lower risk of heart disease and cancer"
   },
   {
+    title: "Benefit your physical health"
+  },
+  {
     title: "Burns calories" 
   },
   {
     title: "Reduce iron levels"
   },
   {
-    title: "It's for a good cause!"
+    title: "Free health check-up"
   },
+  {
+    title: "Save one or even more lives"
+  },
+  
 ]
 
 const sideEffects = [
   {
-    title: "Feel nauseous, lightheaded, or dizzy"
+    title: "Feel lightheaded, or dizzy"
   },
   {
-    title: "May develop a bruise at the site" 
+    title: "Bruising" 
+  },
+  {
+    title: "Continued Bleeding" 
+  },
+  {
+    title: "Pain" 
+  },
+  {
+    title: "Physical Weakness" 
   },
   
 ]
@@ -68,7 +84,15 @@ export default class WhyScreen extends React.Component {
             selectedIndex={this.state.selectedIndex}
             onTabPress={this.handleIndexChange}
           />
-          <View style={styles.BenfitsInfo}> 
+          <Text style={styles.BenefitsInfo}>
+            Donating blood doesn't just benefit recipients. There are health benefits for donors too aside 
+            from helping others.
+          </Text>
+          <Text style={styles.SideEffectsInfo}>
+              Donating blood is a safe process, but there are some things you should know before you donate. 
+              Here are some side effects you should consider before donating blood:
+          </Text>
+          <View style={styles.WhyInfo}> 
             <List>
               {data.map((item) => (
                 <ListItem
@@ -105,7 +129,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#fff',
   },
   ListItemTitle:{
-    fontFamily: 'Courier'
+    fontFamily: 'Times New Roman',
+    fontSize: 18
   },
   welcomeImage: {
     marginTop: 30,
@@ -113,4 +138,18 @@ const styles = StyleSheet.create({
     height: 60,
     resizeMode: 'contain',
   },
+  SideEffectsInfo:{
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    fontFamily: 'Times New Roman',
+    fontSize: 18
+  },
+  BenefitsInfo:{
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    fontFamily: 'Times New Roman',
+    fontSize: 18
+  }
 });
