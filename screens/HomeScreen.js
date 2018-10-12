@@ -15,10 +15,10 @@ import {Button, Text, Card} from 'react-native-elements';
 import { MonoText } from '../components/StyledText';
 
 export const CAROUSEL = [
-  { image: '../assets/images/img1.jpg'},
-  { image: '../assets/images/img1.jpg'},
-  { image: '../assets/images/img1.jpg'},
-  { image: 'https://i.imgur.com/UYiroysl.jpg'},
+  { image: '../assets/images/img1.png'},
+  { image: '../assets/images/img2.png'},
+  { image: '../assets/images/img3.png'},
+  { image: '../assets/images/img4.png'},
 ]
 
 export default class HomeScreen extends React.Component {
@@ -63,9 +63,11 @@ export default class HomeScreen extends React.Component {
               About Us:
             </Text>
             <Text style ={styles.AboutUsText}>
-            Despite being the world's fourth largest population, the Red Cross in Indonesia is 
-            always low on blood supplies due to a lack of donors. To solve this problem, once every three months,
-            we hold a blood donor event.
+            Liquid Life is a non profit project which is based on the need of blood donors in Indonesia. 
+            Starting off as volunteers in the organization Indahnya Berbagi,
+            we help organize a blood donor event once every three months. 
+            To improve and promote these events, we eventually work with Indahnya Berbagi. 
+            
             </Text>
           </Card>
 
@@ -74,7 +76,10 @@ export default class HomeScreen extends React.Component {
               Mission:
             </Text>
             <Text style={styles.MissionText}>
-            Get people to donate blood for the Red Cross.
+            Despite being the world's fourth largest population, the Red Cross in Indonesia is 
+            always low on blood supplies due to a lack of donors. In these events, 
+            we work with the Red Cross to collect blood packs from 
+            blood donors to meet demand during crisis.
             </Text>
           </Card>
 
