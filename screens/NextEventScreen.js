@@ -23,7 +23,7 @@ export default class NextEventScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <ScrollView style={styles.container}>
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -39,7 +39,10 @@ export default class NextEventScreen extends React.Component {
                 When?
                 </Text>
                 <Text h5 style ={styles.WhenInfo}>
-                November .....
+                4 November 2018
+                </Text>
+                <Text h5 style ={styles.WhenInfo}>
+                09.00 - 12.00
                 </Text>
             </View>
 
@@ -48,7 +51,13 @@ export default class NextEventScreen extends React.Component {
                 Where?
                 </Text>
                 <Text h5 style={styles.WhereInfo}>
-                jakarta...
+                Taman Grisenda Blok E2/2 
+                </Text>
+                <Text h5 style={styles.WhereInfo}>
+                Pantai Indah Kapuk
+                </Text>
+                <Text h5 style={styles.WhereInfo}>
+                Jakarta Utara
                 </Text>
             </View>
 
@@ -57,7 +66,7 @@ export default class NextEventScreen extends React.Component {
                     What to bring?
                 </Text>
                 <Text h5 style={styles.WhatInfo}>
-                    id
+                   KTP
                 </Text>
             </View>
           </Card>
@@ -67,7 +76,7 @@ export default class NextEventScreen extends React.Component {
                 For more information, please contact:
               </Text>
               <Text h6 style={styles.ContactInfo}>
-                Email: ..........
+                Email: 
               </Text>
           </Card>
         </ScrollView>
@@ -77,12 +86,6 @@ export default class NextEventScreen extends React.Component {
     );
   }
 
-  
-  _NextPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
@@ -90,48 +93,46 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   WhenTitle:{
-    fontSize:27
+    fontSize:27,
+    fontFamily: 'TimesNewRomanPS-BoldMT'
   },
   WhenInfo:{
-    fontSize:20
+    fontSize:20,
+    fontFamily: 'Times New Roman'
   },
   Where:{
     marginBottom: 20
   },
   WhereTitle:{
-    fontSize:27
+    fontSize:27,
+    fontFamily: 'TimesNewRomanPS-BoldMT'
   },
   WhereInfo:{
-    fontSize:20
+    fontSize:20,
+    fontFamily: 'Times New Roman'
   },
   What:{
-    marginBottom: 20
+    marginBottom: 10
   },
   WhatTitle:{
-    fontSize:27
+    fontSize:27,
+    fontFamily: 'TimesNewRomanPS-BoldMT'
   },
   WhatInfo:{
-    fontSize:20
+    fontSize:20,
+    fontFamily: 'Times New Roman'
   },
   ContactTitle:{
-    fontSize:20
+    fontSize:19,
+    fontFamily: 'TimesNewRomanPS-BoldMT'
   },
   ContactInfo:{
-    fontSize:18
+    fontSize:18,
+    fontFamily: 'Times New Roman'
   },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 0,
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -143,64 +144,5 @@ const styles = StyleSheet.create({
     height: 60,
     resizeMode: 'contain',
   },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  
 });
