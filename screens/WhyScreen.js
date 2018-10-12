@@ -53,35 +53,39 @@ export default class WhyScreen extends React.Component {
       data=sideEffects
     }
     return (
-      <ScrollView style={styles.container}>
-        <Image
-          source={
-          require('../assets/images/heart.png')
-          }
-          style={styles.welcomeImage}
-        />
-        <SegmentedControlTab
-          values={['Benefits', 'Side Effects']}
-          selectedIndex={this.state.selectedIndex}
-          onTabPress={this.handleIndexChange}
-        />
-        <View style={styles.BenfitsInfo}> 
-          <List>
-            {data.map((item) => (
-              <ListItem
-                key={item.title}
-                title={item.title}
-                hideChevron={true}
-                leftIcon={{name: 'drop', type: 'entypo'}}
-                containerStyle={styles.ListItem}
-                titleStyle={styles.ListItemTitle}
-              />
-            ))
-            }
-          </List>
-        </View>
+      <View style={styles.container}>
+        <ScrollView style={styles.container}>
+          <View style={styles.welcomeContainer}>
+            <Image
+              source={
+                require('../assets/images/heart.png')
+              }
+              style={styles.welcomeImage}
+            />
+          </View>
+          <SegmentedControlTab
+            values={['Benefits', 'Side Effects']}
+            selectedIndex={this.state.selectedIndex}
+            onTabPress={this.handleIndexChange}
+          />
+          <View style={styles.BenfitsInfo}> 
+            <List>
+              {data.map((item) => (
+                <ListItem
+                  key={item.title}
+                  title={item.title}
+                  hideChevron={true}
+                  leftIcon={{name: 'drop', type: 'entypo'}}
+                  containerStyle={styles.ListItem}
+                  titleStyle={styles.ListItemTitle}
+                />
+              ))
+              }
+            </List>
+          </View>
 
-      </ScrollView>
+        </ScrollView>
+      </View>
       
     );
   }
@@ -90,8 +94,12 @@ export default class WhyScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100,
     backgroundColor: '#fff',
+  },
+  welcomeContainer: {
+    alignItems: 'center',
+    marginTop: 0,
+    marginBottom: 20,
   },
   ListItem:{
     borderBottomColor: '#fff',
@@ -100,11 +108,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier'
   },
   welcomeImage: {
-    width: 10,
+    marginTop: 30,
+    width: 1000,
     height: 60,
     resizeMode: 'contain',
-    marginTop: 0,
-    marginLeft: 0,
   },
-
 });

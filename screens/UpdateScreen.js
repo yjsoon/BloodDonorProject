@@ -82,6 +82,7 @@ export default class UpdateScreen extends React.Component {
     }
     return (
         <ScrollView style={styles.container}
+        
             refreshControl={
                 <RefreshControl
                     refreshing={this.state.refreshing}
@@ -89,6 +90,14 @@ export default class UpdateScreen extends React.Component {
                 />
             }
         >
+            <View style={styles.welcomeContainer}>
+                <Image
+                    source={
+                        require('../assets/images/heart.png')
+                    }
+                style={styles.welcomeImage}
+            />
+          </View>
             <Accordion
                 sections={this.state.dataSource}
                 activeSections={this.state.activeSections}
@@ -106,5 +115,16 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-    }
+    },
+    welcomeContainer: {
+        alignItems: 'center',
+        marginTop: 0,
+        marginBottom: 20,
+    },
+    welcomeImage: {
+        marginTop: 30,
+        width: 1000,
+        height: 60,
+        resizeMode: 'contain',
+    },
 });

@@ -32,7 +32,7 @@ export default class NextEventScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-\
+
           <Card>
             <View style={styles.When}>
                 <Text h4 style={styles.WhenTitle}>

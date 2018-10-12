@@ -1,5 +1,10 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {
+  Image,
+  ScrollView,
+  View,
+  StyleSheet,
+} from 'react-native';
 
 export default class RequirementsScreen extends React.Component {
   static navigationOptions = {
@@ -7,8 +12,38 @@ export default class RequirementsScreen extends React.Component {
   };
 
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.welcomeContainer}>
+            <Image
+              source={
+                require('../assets/images/heart.png')
+              }
+              style={styles.welcomeImage}
+            />
+          </View>
+          </ScrollView>
+      </View>
+      );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  welcomeContainer: {
+    alignItems: 'center',
+    marginTop: 0,
+    marginBottom: 20,
+  },
+  welcomeImage: {
+    marginTop: 30,
+    width: 1000,
+    height: 60,
+    resizeMode: 'contain',
+  },
+})
+
