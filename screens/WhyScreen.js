@@ -3,6 +3,10 @@ import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import {List, ListItem} from 'react-native-elements';
 
+const benefitsInfo = "Donating blood doesn't just benefit recipients. There are health benefits for donors too aside from helping others."
+
+const sideEffectsInfo = "Donating blood is a safe process, but there are some things you should know before you donate. Here are some side effects you should consider before donating blood:"
+
 const benefits = [
   {
     title: "Lower risk of heart disease and cancer"
@@ -64,8 +68,10 @@ export default class WhyScreen extends React.Component {
 
   render() {
     if(this.state.selectedIndex == 0){ //benefits
+      info=benefitsInfo
       data=benefits
     }else{ //side effects
+      info=sideEffectsInfo
       data=sideEffects
     }
     return (
@@ -84,13 +90,8 @@ export default class WhyScreen extends React.Component {
             selectedIndex={this.state.selectedIndex}
             onTabPress={this.handleIndexChange}
           />
-          <Text style={styles.BenefitsInfo}>
-            Donating blood doesn't just benefit recipients. There are health benefits for donors too aside 
-            from helping others.
-          </Text>
-          <Text style={styles.SideEffectsInfo}>
-              Donating blood is a safe process, but there are some things you should know before you donate. 
-              Here are some side effects you should consider before donating blood:
+          <Text style={styles.Info}>
+              { info }
           </Text>
           <View style={styles.WhyInfo}> 
             <List>
@@ -99,7 +100,7 @@ export default class WhyScreen extends React.Component {
                   key={item.title}
                   title={item.title}
                   hideChevron={true}
-                  leftIcon={{name: 'drop', type: 'entypo'}}
+                  leftIcon={{name: 'drop', type: 'entypo', color: 'red'}}
                   containerStyle={styles.ListItem}
                   titleStyle={styles.ListItemTitle}
                 />
@@ -138,18 +139,11 @@ const styles = StyleSheet.create({
     height: 60,
     resizeMode: 'contain',
   },
-  SideEffectsInfo:{
+    Info:{
     marginTop: 20,
     marginLeft: 20,
     marginRight: 20,
     fontFamily: 'Times New Roman',
     fontSize: 18
   },
-  BenefitsInfo:{
-    marginTop: 20,
-    marginLeft: 20,
-    marginRight: 20,
-    fontFamily: 'Times New Roman',
-    fontSize: 18
-  }
 });
