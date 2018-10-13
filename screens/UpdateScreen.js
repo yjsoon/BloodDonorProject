@@ -24,7 +24,7 @@ export default class UpdateScreen extends React.Component {
             activeSections: [],
             refreshing: false,
             tableHead: ['Blood type', 'No. of bags'],
-            tableData: []
+
         }
     }
 
@@ -69,32 +69,37 @@ export default class UpdateScreen extends React.Component {
         bloodContent.push(["AB", section.AB])
         bloodContent.push(["O", section.O])
         return (
-          <View style={styles.content}>
+          <View>
+            <View style={styles.content}> 
             <Text>{section.content}</Text>
-            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-                <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
-                <Rows data={bloodContent} textStyle={styles.text}/>
-            </Table>
-            <List> 
-                <ListItem
-                    title={
-                        <Text>Positive {section.positive}</Text>
-                    }
-                    hideChevron={true}
-                    leftIcon={{name:'plus', type: 'entypo', color: 'red'}}
-                    containerStyle={styles.ListItem}
-                    titleStyle={styles.ListItemTitle}
-                />
-                <ListItem
-                    title={
-                        <Text>Negative {section.negative}</Text>
-                    }
-                    hideChevron={true}
-                    leftIcon={{name:'minus', type: 'entypo', color: 'red'}}
-                    containerStyle={styles.ListItem}
-                    titleStyle={styles.ListItemTitle}
-                />
-            </List> 
+                <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}} style={styles.table}>
+                    <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
+                    <Rows data={bloodContent} textStyle={styles.text}/>
+                </Table>
+            </View>
+            <View style={styles.sign}>
+                <List> 
+                    <ListItem
+                        title={
+                            <Text>Positive {section.positive}</Text>
+                        }
+                        hideChevron={true}
+                        leftIcon={{name:'plus', type: 'entypo', color: 'red'}}
+                        containerStyle={styles.ListItem}
+                        titleStyle={styles.ListItemTitle}
+
+                    />
+                    <ListItem
+                        title={
+                            <Text>Negative {section.negative}</Text>
+                        }
+                        hideChevron={true}
+                        leftIcon={{name:'minus', type: 'entypo', color: 'red'}}
+                        contentContainerStyle={styles.ListItem}
+                        titleStyle={styles.ListItemTitle}
+                    />
+                </List> 
+            </View>
           </View>
           
         );
@@ -161,4 +166,21 @@ const styles = StyleSheet.create({
         height: 60,
         resizeMode: 'contain',
     },
+    table:{
+        width: 200
+    },
+    content:{
+        alignItems: 'center'
+    },
+    headerText:{
+        textAlign: 'center'
+    },
+    sign:{
+        width:200,
+        alignItems: 'center'
+    },
+    ListItem:{
+        flex:0
+
+    }
 });
