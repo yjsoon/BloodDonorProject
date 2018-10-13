@@ -35,9 +35,7 @@ export default class NextEventScreen extends React.Component {
 
           <Card>
             <View style={styles.When}>
-                <Text h4 style={styles.WhenTitle}>
-                When?
-                </Text>
+                {/*leftIcon={{name: 'event'}}*/}
                 <Text h5 style ={styles.WhenInfo}>
                 4 November 2018
                 </Text>
@@ -47,9 +45,7 @@ export default class NextEventScreen extends React.Component {
             </View>
 
             <View style={styles.Where}>
-                <Text h4 style={styles.WhereTitle}>
-                Where?
-                </Text>
+                {/*leftIcon={{name: 'location'}}*/}
                 <Text h5 style={styles.WhereInfo}>
                 Taman Grisenda Blok E2/2 
                 </Text>
@@ -75,8 +71,9 @@ export default class NextEventScreen extends React.Component {
               <Text h5 style={styles.ContactTitle}>
                 For more information, please contact:
               </Text>
+              {/*leftIcon={{name: 'call'}}*/}
               <Text h6 style={styles.ContactInfo}>
-                Email: 
+                0852-10284908
               </Text>
           </Card>
         </ScrollView>
@@ -92,20 +89,12 @@ const styles = StyleSheet.create({
   When:{
     marginBottom: 20
   },
-  WhenTitle:{
-    fontSize:27,
-    fontFamily: 'TimesNewRomanPS-BoldMT'
-  },
   WhenInfo:{
     fontSize:20,
     fontFamily: 'Times New Roman'
   },
   Where:{
     marginBottom: 20
-  },
-  WhereTitle:{
-    fontSize:27,
-    fontFamily: 'TimesNewRomanPS-BoldMT'
   },
   WhereInfo:{
     fontSize:20,
