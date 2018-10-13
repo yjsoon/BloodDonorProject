@@ -9,6 +9,8 @@ import {
     RefreshControl,
   } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
+import { List,ListItem } from 'react-native-elements';
+import {Table, Row, Rows} from 'react-native-table-component';
 
 export default class UpdateScreen extends React.Component {
     static navigationOptions = {
@@ -21,7 +23,8 @@ export default class UpdateScreen extends React.Component {
             isLoading:true,
             activeSections: [],
             refreshing: false,
-            
+            tableHead: ['Blood type', 'No. of bags'],
+            tableData: []
         }
     }
 
@@ -60,10 +63,40 @@ export default class UpdateScreen extends React.Component {
       };
      
       _renderContent = section => {
+        bloodContent = [];
+        bloodContent.push(["A", section.A])
+        bloodContent.push(["B", section.B])
+        bloodContent.push(["AB", section.AB])
+        bloodContent.push(["O", section.O])
         return (
           <View style={styles.content}>
             <Text>{section.content}</Text>
+            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
+                <Rows data={bloodContent} textStyle={styles.text}/>
+            </Table>
+            <List> 
+                <ListItem
+                    title={
+                        <Text>Positive {section.positive}</Text>
+                    }
+                    hideChevron={true}
+                    leftIcon={{name:'plus', type: 'entypo', color: 'red'}}
+                    containerStyle={styles.ListItem}
+                    titleStyle={styles.ListItemTitle}
+                />
+                <ListItem
+                    title={
+                        <Text>Negative {section.negative}</Text>
+                    }
+                    hideChevron={true}
+                    leftIcon={{name:'minus', type: 'entypo', color: 'red'}}
+                    containerStyle={styles.ListItem}
+                    titleStyle={styles.ListItemTitle}
+                />
+            </List> 
           </View>
+          
         );
       };
      
@@ -106,6 +139,7 @@ export default class UpdateScreen extends React.Component {
                 renderContent={this._renderContent}
                 onChange={this._updateSections}
               />
+            
         </ScrollView>
     )
   }
