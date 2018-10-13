@@ -16,19 +16,9 @@ export default class SliderEntry extends Component {
     get image () {
         const { data: { image }, parallax, parallaxProps, even } = this.props;
 
-        return parallax ? (
-            <ParallaxImage
-              source={{ uri: image }}
-              containerStyle={[styles.imageContainer, even ? styles.imageContainerEven : {}]}
-              style={styles.image}
-              parallaxFactor={0.35}
-              showSpinner={true}
-              spinnerColor={even ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.25)'}
-              {...parallaxProps}
-            />
-        ) : (
+        return (
             <Image
-              source={{ uri: image }}
+              source={image}
               style={styles.image}
             />
         );
@@ -36,15 +26,6 @@ export default class SliderEntry extends Component {
 
     render () {
         const { data: { title, subtitle }, even } = this.props;
-
-        const uppercaseTitle = title ? (
-            <Text
-              style={[styles.title, even ? styles.titleEven : {}]}
-              numberOfLines={2}
-            >
-                { title.toUpperCase() }
-            </Text>
-        ) : false;
 
         return (
             <TouchableOpacity

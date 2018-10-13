@@ -51,9 +51,11 @@ export default StyleSheet.create({
     },
     image: {
         ...StyleSheet.absoluteFillObject,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
         borderRadius: IS_IOS ? entryBorderRadius : 0,
         borderRadius: entryBorderRadius,
+        width: null,
+        height: null
     },
     // image's border radius is buggy on iOS; let's hack it!
     radiusMask: {

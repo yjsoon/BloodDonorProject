@@ -15,10 +15,10 @@ import {Button, Text, Card} from 'react-native-elements';
 import { MonoText } from '../components/StyledText';
 
 export const CAROUSEL = [
-  { image: '../assets/images/img1.png'},
-  { image: '../assets/images/img2.png'},
-  { image: '../assets/images/img3.png'},
-  { image: '../assets/images/img4.png'},
+  { image: require('../assets/images/img1.png')},
+  { image: require('../assets/images/img2.png')},
+  { image: require('../assets/images/img3.png')},
+  { image: require('../assets/images/img4.png')},
 ]
 
 export default class HomeScreen extends React.Component {
@@ -77,7 +77,7 @@ export default class HomeScreen extends React.Component {
             </Text>
             <Text style={styles.MissionText}>
             Despite being the world's fourth largest population, the Red Cross in Indonesia is 
-            always low on blood supplies due to a lack of donors. In these events, 
+            always low on blood supplies due to alack of donors. In these events, 
             we work with the Red Cross to collect blood packs from 
             blood donors to meet demand during crisis.
             </Text>

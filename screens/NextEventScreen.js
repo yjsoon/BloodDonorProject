@@ -10,7 +10,7 @@ import {
 import { WebBrowser } from 'expo';
 import SliderEntry from '../components/SliderEntry';
 import {sliderWidth, itemWidth} from '../styles/SliderEntry.style';
-import {Text, Card} from 'react-native-elements';
+import {Text, Card, ListItem, List} from 'react-native-elements';
 
 import { MonoText } from '../components/StyledText';
 
@@ -33,31 +33,38 @@ export default class NextEventScreen extends React.Component {
             />
           </View>
 
-          <Card>
-            <View style={styles.When}>
-                {/*leftIcon={{name: 'event'}}*/}
-                <Text h5 style ={styles.WhenInfo}>
-                4 November 2018
-                </Text>
-                <Text h5 style ={styles.WhenInfo}>
-                09.00 - 12.00
-                </Text>
-            </View>
+              <List > 
+                <ListItem
+                  title="4 November 2018"
+                  hideChevron={true}
+                  leftIcon={{name:'event', type: 'MaterialIcons', color: 'red'}}
+                  containerStyle={styles.ListItem}
+                  titleStyle={styles.ListItemTitle}
+                />
+                <ListItem
+                  title="09.00 - 12.00"
+                  hideChevron={true}
+                  leftIcon={{name:'access-time', type: 'MaterialIcons', color: 'red'}}
+                  containerStyle={styles.ListItem}
+                  titleStyle={styles.ListItemTitle}
+                />
+                <ListItem
+                  title={
+                    <View>
+                      <Text style={styles.ListItemTitle}>Taman Grisenda Blok E2/2</Text>
+                      <Text style={styles.ListItemTitle}>Pantai Indah Kapuk</Text> 
+                      <Text style={styles.ListItemTitle}>Jakarta Utara</Text>
+                    </View>
+                  }
+                  hideChevron={true}
+                  leftIcon={{name:'location-on', type: 'MaterialIcons', color: 'red'}}
+                  titleNumberOfLines={3}
+                  containerStyle={styles.ListItem}
+                />
+              </List>
 
-            <View style={styles.Where}>
-                {/*leftIcon={{name: 'location'}}*/}
-                <Text h5 style={styles.WhereInfo}>
-                Taman Grisenda Blok E2/2 
-                </Text>
-                <Text h5 style={styles.WhereInfo}>
-                Pantai Indah Kapuk
-                </Text>
-                <Text h5 style={styles.WhereInfo}>
-                Jakarta Utara
-                </Text>
-            </View>
 
-            <View style={styles.What}>
+          <View style={styles.What}>
                 <Text h4 style={styles.WhatTitle}>
                     What to bring?
                 </Text>
@@ -65,16 +72,20 @@ export default class NextEventScreen extends React.Component {
                    KTP
                 </Text>
             </View>
-          </Card>
 
           <Card style={styles.Contact}>
-              <Text h5 style={styles.ContactTitle}>
-                For more information, please contact:
-              </Text>
-              {/*leftIcon={{name: 'call'}}*/}
-              <Text h6 style={styles.ContactInfo}>
-                0852-10284908
-              </Text>
+            <Text h5 style={styles.ContactTitle}>
+              For more information, please contact:
+            </Text>
+            <List> 
+              <ListItem
+                title="0852-10284908"
+                hideChevron={true}
+                leftIcon={{name:'call', type: 'MaterialIcons', color: 'red'}}
+                containerStyle={styles.ListItem}
+                titleStyle={styles.ListItemTitle}
+              />
+            </List>
           </Card>
         </ScrollView>
 
@@ -101,14 +112,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Times New Roman'
   },
   What:{
-    marginBottom: 10
+    marginLeft: 20,
+    marginRight:20,
+    marginBottom: 10,
+    marginTop:20
   },
   WhatTitle:{
-    fontSize:27,
+    fontSize:20,
     fontFamily: 'TimesNewRomanPS-BoldMT'
   },
   WhatInfo:{
-    fontSize:20,
+    fontSize:18,
     fontFamily: 'Times New Roman'
   },
   ContactTitle:{
@@ -133,5 +147,14 @@ const styles = StyleSheet.create({
     height: 60,
     resizeMode: 'contain',
   },
+  ListItem:{
+    marginLeft:20,
+    marginRight:20,
+  },
+  ListItemTitle:{
+    fontSize:20,
+    fontFamily: 'Times New Roman',
+    color: 'black'
+  }
   
 });
