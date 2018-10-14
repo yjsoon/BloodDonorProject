@@ -72,21 +72,28 @@ export default class NextEventScreen extends React.Component {
                    KTP
                 </Text>
             </View>
-
-          <Card style={styles.Contact}>
-            <Text h5 style={styles.ContactTitle}>
-              For more information, please contact:
-            </Text>
-            <List> 
-              <ListItem
-                title="0852-10284908"
-                hideChevron={true}
-                leftIcon={{name:'call', type: 'MaterialIcons', color: 'red'}}
-                containerStyle={styles.ListItem}
-                titleStyle={styles.ListItemTitle}
-              />
-            </List>
-          </Card>
+          <View style={styles.Info}>
+            <Image 
+            source={
+                  require('../assets/images/imageBlood.png')
+                }
+                style={styles.Image}
+            />
+            <Card style={styles.Contact}>
+              <Text h5 style={styles.ContactTitle}>
+                For more information, please contact:
+              </Text>
+              <List> 
+                <ListItem
+                  title="0852-10284908"
+                  hideChevron={true}
+                  leftIcon={{name:'call', type: 'MaterialIcons', color: 'red'}}
+                  containerStyle={styles.ListItem}
+                  titleStyle={styles.ListItemTitle}
+                />
+              </List>
+            </Card>
+          </View>
         </ScrollView>
 
         
@@ -155,6 +162,17 @@ const styles = StyleSheet.create({
     fontSize:20,
     fontFamily: 'Times New Roman',
     color: 'black'
+  },
+  Info:{
+    flexDirection:'row'
+  },
+  Image:{
+    flex:0.2,
+    width:100
+  },
+  Contact:{
+    flex:0.8
   }
+
   
 });
