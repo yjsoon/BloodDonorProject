@@ -86,6 +86,9 @@ export default class WhyScreen extends React.Component {
             />
           </View>
           <SegmentedControlTab
+            tabStyle={styles.tabStyle}
+            tabTextStyle={styles.tabTextStyle}
+            activeTabStyle={styles.activeTabStyle}
             values={['Benefits', 'Side Effects']}
             selectedIndex={this.state.selectedIndex}
             onTabPress={this.handleIndexChange}
@@ -94,7 +97,7 @@ export default class WhyScreen extends React.Component {
               { info }
           </Text>
           <View style={styles.WhyInfo}> 
-            <List>
+            <List containerStyle={styles.List}>
               {data.map((item) => (
                 <ListItem
                   key={item.title}
@@ -126,6 +129,9 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 20,
   },
+  List:{
+    borderColor:'white'
+  },
   ListItem:{
     borderBottomColor: '#fff',
   },
@@ -146,4 +152,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Times New Roman',
     fontSize: 18
   },
+  activeTabStyle:{
+    backgroundColor:'red'
+  },
+  tabTextStyle:{
+    color:'red'
+  },
+  tabStyle:{
+    borderColor:'red'
+  }
 });
