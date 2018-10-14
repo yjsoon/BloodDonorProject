@@ -33,7 +33,7 @@ export default class NextEventScreen extends React.Component {
             />
           </View>
 
-              <List > 
+              <List containerStyle={styles.List} > 
                 <ListItem
                   title="4 November 2018"
                   hideChevron={true}
@@ -79,20 +79,20 @@ export default class NextEventScreen extends React.Component {
                 }
                 style={styles.Image}
             />
-            <Card style={styles.Contact}>
+            <View style={styles.Contact}>
               <Text h5 style={styles.ContactTitle}>
                 For more information, please contact:
               </Text>
-              <List> 
+              <List containerStyle={styles.ListContact}> 
                 <ListItem
                   title="0852-10284908"
                   hideChevron={true}
                   leftIcon={{name:'call', type: 'MaterialIcons', color: 'red'}}
-                  containerStyle={styles.ListItem}
+                  containerStyle={styles.ListItemContact}
                   titleStyle={styles.ListItemTitle}
                 />
               </List>
-            </Card>
+            </View>
           </View>
         </ScrollView>
 
@@ -154,24 +154,34 @@ const styles = StyleSheet.create({
     height: 60,
     resizeMode: 'contain',
   },
-  ListItem:{
-    marginLeft:20,
-    marginRight:20,
+  ListItemContact:{
+    borderBottomColor:'white'
+  },
+  ListContact:{
+    borderColor:'white'
   },
   ListItemTitle:{
     fontSize:20,
     fontFamily: 'Times New Roman',
-    color: 'black'
+    color: 'black',
   },
   Info:{
-    flexDirection:'row'
+    flexDirection:'row',
+    alignItems:'center'
   },
   Image:{
-    flex:0.2,
-    width:100
+    flex:0.3,
+    resizeMode:'contain',
+    marginLeft:10,
+    height:120
   },
   Contact:{
-    flex:0.8
+    flex:0.7,
+    paddingLeft:20
+  },
+  List:{
+    marginLeft:20,
+    marginRight:20
   }
 
   
