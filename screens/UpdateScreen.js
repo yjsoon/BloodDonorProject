@@ -9,7 +9,7 @@ import {
     RefreshControl,
   } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
-import { List,ListItem } from 'react-native-elements';
+import { List,ListItem, Icon } from 'react-native-elements';
 import {Table, Row, Rows} from 'react-native-table-component';
 
 export default class UpdateScreen extends React.Component {
@@ -54,10 +54,12 @@ export default class UpdateScreen extends React.Component {
         );
       };
      
-      _renderHeader = section => {
+      _renderHeader = (section, _ , isActive) => {
         return (
+
           <View style={styles.header}>
             <Text style={styles.headerText}>{section.title}</Text>
+            <Icon name={isActive? 'angle-double-up' : 'angle-double-down'} type='font-awesome'/>
           </View>
         );
       };
@@ -71,14 +73,14 @@ export default class UpdateScreen extends React.Component {
         return (
           <View>
             <View style={styles.content}> 
-            <Text>{section.content}</Text>
-                <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}} style={styles.table}>
-                    <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
+            <Text style={styles.contentInfo}>{section.content}</Text>
+                <Table borderStyle={{borderWidth: 1, borderColor: 'black'}} style={styles.table}>
+                    <Row data={this.state.tableHead} style={styles.head} textStyle={styles.textHeader}/>
                     <Rows data={bloodContent} textStyle={styles.text}/>
                 </Table>
             </View>
             <View style={styles.sign}>
-                <List> 
+                <List width={200} containerStyle={styles.List}> 
                     <ListItem
                         title={
                             <Text>Positive {section.positive}</Text>
@@ -95,7 +97,7 @@ export default class UpdateScreen extends React.Component {
                         }
                         hideChevron={true}
                         leftIcon={{name:'minus', type: 'entypo', color: 'red'}}
-                        contentContainerStyle={styles.ListItem}
+                        containerStyle={styles.ListItem}
                         titleStyle={styles.ListItemTitle}
                     />
                 </List> 
@@ -172,15 +174,44 @@ const styles = StyleSheet.create({
     content:{
         alignItems: 'center'
     },
+    contentInfo:{
+        alignItems: 'center',
+        marginTop:0,
+        marginBottom:10,
+        fontSize:18
+    },
     headerText:{
-        textAlign: 'center'
+        marginLeft:30,
+        fontSize: 20,
+        margin: 20,
+        flex:0.9
     },
     sign:{
-        width:200,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     ListItem:{
-        flex:0
-
+        flex:0,
+        borderBottomColor:'white',
+        paddingBottom:0,
+        paddingTop:5
+    },
+    List:{
+        borderColor:'white',
+        marginTop:0,
+        marginBottom:10
+    },
+    textHeader:{
+        fontSize:16,
+        fontWeight:'bold',
+        textAlign:'center'
+    },
+    text:{
+        textAlign:'center'
+    },
+    header:{
+        borderColor:'black',
+        borderBottomWidth:2,
+        flexDirection:'row'
     }
+    
 });
