@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
         width: 200
     },
     content:{
+        marginTop:20,
         alignItems: 'center'
     },
     contentInfo:{
@@ -209,7 +210,9 @@ const styles = StyleSheet.create({
         textAlign:'center'
     },
     header:{
-        borderColor:'black',
+        marginLeft:20,
+        marginRight:20,
+        borderColor:'#777',
         borderBottomWidth:2,
         flexDirection:'row'
     }
