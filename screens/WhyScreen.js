@@ -48,6 +48,10 @@ const sideEffects = [
   
 ]
 
+const benefitsImage = require('../assets/images/BenefitsImage.png')
+
+const sideEffectsImage = require('../assets/images/SideEffectsImage.png')
+
 export default class WhyScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -70,9 +74,11 @@ export default class WhyScreen extends React.Component {
     if(this.state.selectedIndex == 0){ //benefits
       info=benefitsInfo
       data=benefits
+      image=benefitsImage
     }else{ //side effects
       info=sideEffectsInfo
       data=sideEffects
+      image=sideEffectsImage
     }
     return (
       <View style={styles.container}>
@@ -110,6 +116,12 @@ export default class WhyScreen extends React.Component {
               ))
               }
             </List>
+        <Image 
+            source={
+              image
+            }
+            style={styles.Image}
+        />
           </View>
 
         </ScrollView>
@@ -160,5 +172,13 @@ const styles = StyleSheet.create({
   },
   tabStyle:{
     borderColor:'red'
-  }
+  },
+  Image:{
+    flex:0.7,
+    resizeMode: 'contain',
+    height:150,
+    width:175,
+    marginLeft:175
+  },
+  
 });
