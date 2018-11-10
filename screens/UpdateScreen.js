@@ -136,8 +136,13 @@ export default class UpdateScreen extends React.Component {
                         require('../assets/images/heart.png')
                     }
                 style={styles.welcomeImage}
-            />
-          </View>
+                />
+                <Text style={styles.text}>
+                    Thank you to all blood donors who have joined us in our past events! 
+                    We are extremely grateful for your kindness ❤️ 
+
+                </Text>
+            </View>
             <Accordion
                 sections={this.state.dataSource}
                 activeSections={this.state.activeSections}
@@ -215,6 +220,12 @@ const styles = StyleSheet.create({
         borderColor:'#777',
         borderBottomWidth:2,
         flexDirection:'row'
+    },
+    text:{
+        fontSize:18,
+        marginLeft:20,
+        marginRight:20,
+        marginTop: 20
     }
     
 });

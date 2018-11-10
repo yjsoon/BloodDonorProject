@@ -5,7 +5,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { List, ListItem, Text, colors } from 'react-native-elements';
+import { List, ListItem, Text, colors, Icon } from 'react-native-elements';
 
 const ageData = [
   {
@@ -68,9 +68,13 @@ export default class RequirementsScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-          <Text h5 style={styles.Head}>
-              Age:
-          </Text>
+
+          <View style={styles.icon}>
+            <Icon name='male-female' type='foundation' color='red'/>
+            <Text h5 style={styles.Head}>
+                Age:
+            </Text>
+          </View>
           <List containerStyle={styles.List}>
            {ageData.map((item) => (
             <ListItem 
@@ -85,9 +89,13 @@ export default class RequirementsScreen extends React.Component {
            ))
            }
           </List>
-          <Text h5 style={styles.Head}>
-              Weight:
-          </Text>
+
+          <View style={styles.icon}>
+            <Icon name='weight-kilogram' type='material-community' color='red'/>
+            <Text h5 style={styles.Head}>
+                Weight:
+            </Text>
+          </View>
           <List containerStyle={styles.List}>
            {weightData.map((item) => (
             <ListItem 
@@ -102,9 +110,13 @@ export default class RequirementsScreen extends React.Component {
            ))
            }
            </List>
-           <Text h5 style={styles.Head}>
-            Travel:
-          </Text>
+
+           <View style={styles.icon}>
+            <Icon name='plane' type='font-awesome' color='red'/>
+            <Text h5 style={styles.Head}>
+              Travel:
+            </Text>
+          </View>
           <List containerStyle={styles.List}>
            {travelData.map((item) => (
             <ListItem 
@@ -119,9 +131,13 @@ export default class RequirementsScreen extends React.Component {
            ))
            }
           </List>
-          <Text h5 style={styles.Head}>
-          Medications:
-          </Text>
+
+          <View style={styles.icon}>
+            <Icon name='pill' type='material-community' color='red'/>
+            <Text h5 style={styles.Head}>
+            Medications:
+            </Text>
+          </View>
           <List containerStyle={styles.List}>
            {medicationsData.map((item) => (
             <ListItem 
@@ -130,15 +146,19 @@ export default class RequirementsScreen extends React.Component {
               hideChevron={true}
               containerStyle={styles.ListItem}
               titleStyle={styles.ListItemTitle}
-              titleNumberOfLines={2}
+              titleNumberOfLines={3}
               leftIcon={{name: 'asterisk', type: 'foundation', color: 'black', size:10}}
             />
            ))
            }
           </List>
-          <Text h5 style={styles.Head}>
-          Tatoo:
-          </Text>
+
+          <View style={styles.icon}>
+            <Icon name='needle' type='material-community' color='red'/>
+            <Text h5 style={styles.Head}>
+            Tattoo:
+            </Text>
+          </View>
           <List containerStyle={styles.List}>
            {tatooData.map((item) => (
             <ListItem 
@@ -153,9 +173,13 @@ export default class RequirementsScreen extends React.Component {
            ))
            }
           </List>
-          <Text h5 style={styles.Head}>
-          Pregnancy:
-          </Text>
+
+          <View style={styles.icon}>
+            <Icon name='human-pregnant' type='material-community' color='red'/>
+            <Text h5 style={styles.Head}>
+            Pregnancy:
+            </Text>
+          </View>
           <List containerStyle={styles.List}>
            {pregnancyData.map((item) => (
             <ListItem 
@@ -194,7 +218,7 @@ const styles = StyleSheet.create({
   },
   Head:{
     fontSize:16,
-    marginLeft:20,
+    marginLeft:10,
     fontWeight:'bold',
   },
   List:{
@@ -211,6 +235,10 @@ const styles = StyleSheet.create({
   },
   ListItemTitle:{
     color:'black'
+  },
+  icon:{
+    flexDirection: 'row',
+    marginLeft:20
   }
   
 

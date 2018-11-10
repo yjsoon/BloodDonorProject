@@ -148,7 +148,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#fff',
   },
   ListItemTitle:{
-    fontFamily: 'Times New Roman',
     fontSize: 18
   },
   welcomeImage: {
@@ -160,9 +159,8 @@ const styles = StyleSheet.create({
     Info:{
     marginTop: 20,
     marginLeft: 20,
-    marginRight: 20,
-    fontFamily: 'Times New Roman',
-    fontSize: 18
+    marginRight: 18,
+    fontSize: 16
   },
   activeTabStyle:{
     backgroundColor:'red'
