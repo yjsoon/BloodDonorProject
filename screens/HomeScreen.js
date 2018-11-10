@@ -81,6 +81,16 @@ export default class HomeScreen extends React.Component {
                 rightIcon={{name: 'caret-right', type: 'font-awesome'}}
               />
           </View>
+
+          <View style={styles.Calendar}>
+              <Button 
+                onPress={this._CalendarPress} 
+                style={styles.CalendarLink}
+                title="What's Coming Up"
+                backgroundColor="#ff0000"
+                rightIcon={{name: 'caret-right', type: 'font-awesome'}}
+              />
+          </View>
         </ScrollView>
     );
   }
@@ -90,8 +100,14 @@ export default class HomeScreen extends React.Component {
     //WebBrowser.openBrowserAsync(
     //  'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
     this.props.navigation.navigate('AboutUs')
-    
   };
+
+  _CalendarPress = () => {
+    //WebBrowser.openBrowserAsync(
+    //  'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
+    this.props.navigation.navigate('Calendar')
+  };
+
 }
 
 const styles = StyleSheet.create({
@@ -140,6 +156,9 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: 600,
     height: 200
+  },
+  Calendar : {
+    marginTop: 12,
   },
   
 });

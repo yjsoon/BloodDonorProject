@@ -11,6 +11,7 @@ import {
 import Accordion from 'react-native-collapsible/Accordion';
 import { List,ListItem, Icon } from 'react-native-elements';
 import {Table, Row, Rows} from 'react-native-table-component';
+import Colors from '../constants/Colors';
 
 export default class UpdateScreen extends React.Component {
     static navigationOptions = {
@@ -160,7 +161,7 @@ export default class UpdateScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: Colors.backgroundColor,
     },
     welcomeContainer: {
         alignItems: 'center',
@@ -197,12 +198,13 @@ const styles = StyleSheet.create({
     },
     ListItem:{
         flex:0,
-        borderBottomColor:'white',
+        borderBottomColor:Colors.backgroundColor,
         paddingBottom:0,
-        paddingTop:5
+        paddingTop:5,
+        backgroundColor: Colors.backgroundColor,
     },
     List:{
-        borderColor:'white',
+        borderColor: Colors.backgroundColor,
         marginTop:0,
         marginBottom:10
     },
